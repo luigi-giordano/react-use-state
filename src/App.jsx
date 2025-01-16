@@ -34,7 +34,7 @@ const languages = [
 ];
 
 const App = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState(null);
+  const [selectedLanguage, setSelectedLanguage] = useState(1);
 
   const handleClick = (language) => {
     setSelectedLanguage(language);
@@ -42,13 +42,14 @@ const App = () => {
 
   return (
     <div className="container mt-5">
-      <h1 className="text-center mb-4">Seleziona un linguaggio</h1>
+      <h1 className="text-center mb-4">Learn Web development</h1>
       <div className="d-flex flex-column align-items-center gap-2">
         {languages.map((language) => (
           <button
             key={language.id}
             onClick={() => handleClick(language)}
-            className="btn btn-primary btn-lg w-50"
+            className={`btn btn-primary btn-lg w-50 ${selectedLanguage.id === language.id ? "btn-warning" : "btn-primary"
+              }`}
           >
             {language.title}
           </button>
