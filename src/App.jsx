@@ -34,7 +34,7 @@ const languages = [
 ];
 
 const App = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState(1);
+  const [selectedLanguage, setSelectedLanguage] = useState(null);
 
   const handleClick = (language) => {
     setSelectedLanguage(language);
@@ -48,7 +48,7 @@ const App = () => {
           <button
             key={language.id}
             onClick={() => handleClick(language)}
-            className={`btn btn-primary btn-lg w-50 ${selectedLanguage.id === language.id ? "btn-warning" : "btn-primary"
+            className={`btn btn-primary btn-lg w-50 ${selectedLanguage && selectedLanguage.id === language.id ? "btn-warning" : "btn-primary"
               }`}
           >
             {language.title}
@@ -56,17 +56,19 @@ const App = () => {
         ))}
       </div>
 
-      {selectedLanguage ? (
-        <div className="mt-4 p-4 border rounded bg-light">
-          <h2>{selectedLanguage.title}</h2>
-          <p>{selectedLanguage.description}</p>
-        </div>
-      ) : (
-        <div className="mt-4 p-4 border rounded bg-light">
-          <p>Nessun linguaggio selezionato</p>
-        </div>
-      )}
-    </div>
+      {
+        selectedLanguage ? (
+          <div className="mt-4 p-4 border rounded bg-light">
+            <h2>{selectedLanguage.title}</h2>
+            <p>{selectedLanguage.description}</p>
+          </div>
+        ) : (
+          <div className="mt-4 p-4 border rounded bg-warning text-danger">
+            <p>Nessun linguaggio selezionato</p>
+          </div>
+        )
+      }
+    </div >
   );
 };
 
