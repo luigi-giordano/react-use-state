@@ -56,10 +56,14 @@ const App = () => {
         ))}
       </div>
 
-      {selectedLanguage && (
+      {selectedLanguage ? (
         <div className="mt-4 p-4 border rounded bg-light">
           <h2>{selectedLanguage.title}</h2>
           <p>{selectedLanguage.description}</p>
+        </div>
+      ) : (
+        <div className="mt-4 p-4 border rounded bg-light">
+          <p>Nessun linguaggio selezionato</p>
         </div>
       )}
     </div>
