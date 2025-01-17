@@ -56,18 +56,16 @@ const App = () => {
         ))}
       </div>
 
-      {
-        selectedLanguage ? (
-          <div className="mt-4 p-4 border rounded bg-light">
-            <h2>{selectedLanguage.title}</h2>
-            <p>{selectedLanguage.description}</p>
-          </div>
-        ) : (
-          <div className="mt-4 p-4 border rounded bg-warning text-danger">
-            <p>Nessun linguaggio selezionato</p>
-          </div>
-        )
-      }
+      {selectedLanguage ? (
+        <div className="mt-4 p-4 border rounded bg-light">
+          <h2>{selectedLanguage.title}</h2>
+          <p>{selectedLanguage.description}</p>
+        </div>
+      ) : (
+        <div className="mt-4 p-4 border rounded bg-warning text-danger">
+          <p>Nessun linguaggio selezionato</p>
+        </div>
+      )}
     </div >
   );
 };
